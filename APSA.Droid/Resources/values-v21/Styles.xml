@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <!-- Define a custom theme that derives from the light Material Theme -->
+  <style name="ICICIAppathonTheme" parent="android:Theme.Material.Light">
+
+    <!-- Override the app bar color -->
+    <!--<item name="android:colorPrimary">@color/my_peachpuff</item>-->
+
+    <!-- Override the color of UI controls -->
+
+
+    <item name="android:statusBarColor">@color/my_red</item>
+  </style>
+</resources>

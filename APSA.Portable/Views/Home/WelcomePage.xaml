@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APSA.Portable.Views.Home.WelcomePage"
+             BackgroundColor="PeachPuff"
+             Title="Welcome">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="OrangeRed" />
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ParticipantID" Text="Welcome"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <ScrollView>
+            <Label x:Name="Token" IsVisible="False"></Label>
+            <StackLayout Spacing="1" Padding="2" VerticalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="ICICI User" Clicked="ICICUser_Clicked" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Checking Inspectors" Clicked="CheckingInspector_Clicked" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Health Inspector"  Clicked="HealthInspector_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

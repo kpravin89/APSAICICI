@@ -1,7 +1,6 @@
 ﻿using APSA.Portable.Data.Services.Security;
 using APSA.Portable.Models.APIModels.Security;
-using APSA.Portable.Views.Insurance.Scan;
-using APSA.Portable.Views.Test;
+using APSA.Portable.Views.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +32,7 @@ namespace APSA.Portable.Views.Login
                     AppStart.App.AccessToken = tokens[0].token;
                     //Loader.IsRunning = false;
                     await Navigation.PopAsync();
-                    await Navigation.PushAsync(new HomePage());
+                    await Navigation.PushAsync(new WelcomePage());
                 }
                 //Loader.IsRunning = false;
                 messageLabel.Text = "Login Failed";
