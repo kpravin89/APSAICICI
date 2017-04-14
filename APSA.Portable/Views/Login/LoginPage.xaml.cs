@@ -24,23 +24,23 @@ namespace APSA.Portable.Views.Login
 
         async void OnLoginClicked(object sender, EventArgs e)
         {
-            Loader.IsRunning = true;
+            //Loader.IsRunning = true;
             try
             {                
                 var tokens = await oLoginServices.GetTokenAsync(new LoginModel() { participant_access_code = passwordEntry.Text, participant_id = usernameEntry.Text });
                 if(tokens.Count() != 0 && !string.IsNullOrWhiteSpace(tokens[0].token) )
                 {
                     AppStart.App.AccessToken = tokens[0].token;
-                    Loader.IsRunning = false;
+                    //Loader.IsRunning = false;
                     await Navigation.PopAsync();
                     await Navigation.PushAsync(new HomePage());
                 }
-                Loader.IsRunning = false;
+                //Loader.IsRunning = false;
                 messageLabel.Text = "Login Failed";
             }
             catch (Exception ex)
             {
-                Loader.IsRunning = false;
+                //Loader.IsRunning = false;
                 messageLabel.Text = "Login Failed" + ex.Message;
             }
 

@@ -31,7 +31,7 @@
             <Button Text="Login" Clicked="OnLoginClicked" />
             <Label x:Name="messageLabel" />
         </StackLayout>
-        <ActivityIndicator x:Name="Loader" Color="Red" IsRunning="true" />
+        <!--<ActivityIndicator x:Name="Loader" Color="Red" IsRunning="true" />-->
     </ContentPage.Content>
     <!--<Style x:Key="labelStyle" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
