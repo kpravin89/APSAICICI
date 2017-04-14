@@ -72,12 +72,11 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Test2.cs" />
-=======
+
     <Compile Include="Test.cs" />
     <Compile Include="Test3.cs" />
->>>>>>> 3653642477f7b4b2dda327f9e7d952c3f93a86f8
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
