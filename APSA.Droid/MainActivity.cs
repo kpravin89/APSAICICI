@@ -6,7 +6,7 @@ using Android.Content.PM;
 
 namespace APSA.Droid
 {
-    [Activity(Label = "APSA.Droid", MainLauncher = true, Icon = "@drawable/ICICIIcon", Theme = "ICICIAppathonTheme")]
+    [Activity(Label = "APSA.Droid", MainLauncher = true, Icon = "@drawable/ICICIIcon", Theme = "@style/ICICIAppathonTheme")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
