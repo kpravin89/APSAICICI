@@ -14,6 +14,9 @@ namespace APSA.Portable.AppStart
 
         public static string AccessToken { get; set; }
 
+        public static string ParticipantID { get; set; }
+        
+
         public App()
         {
             MainPage = new NavigationPage(new LoginPage());
