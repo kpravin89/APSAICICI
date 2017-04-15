@@ -1,8 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <color name="my_blue">#3498DB</color>
   <color name="my_green">#77D065</color>
   <color name="my_red">#D52B2B</color>
   <color name="my_gray">#738182</color>
   <color name="my_peachpuff">#FFDAB9</color>
+  <color name="primary">#fff7f7</color>
+  <color name="primary_dark">#E12929</color>
+  <color name="primary_darker">#CC1D1D</color>
+  <color name="accent">#121111</color>
+  <color name="black">#000000</color>
+  <color name="jet">#222222</color>
+  <color name="oil">#333333</color>
+  <color name="monsoon">#777777</color>
+  <color name="jumbo">#888888</color>
+  <color name="aluminum">#999999</color>
+  <color name="base">#AAAAAA</color>
+  <color name="iron">#CCCCCC</color>
+  <color name="white">#0b0202</color>
+  <color name="yellow">#f97604</color>
+  <color name="yellow_dark">#a34d02</color>
 </resources>

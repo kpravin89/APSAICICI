@@ -23,15 +23,54 @@
         <ToolbarItem Text="Sign Up" Clicked="OnSignUpClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand">
-            <Label Text="Username" />
-            <Entry x:Name="usernameEntry" Placeholder="username" />
-            <Label Text="Password" />
-            <Entry x:Name="passwordEntry" IsPassword="true" />
-            <Button Text="Login" Clicked="OnLoginClicked" />
-            <Label x:Name="messageLabel" />
-        </StackLayout>
-        <!--<ActivityIndicator x:Name="Loader" Color="Red" IsRunning="true" />-->
+        <ScrollView BackgroundColor="#d3d6db">
+            <RelativeLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="MainLayout"
+                        Orientation="Vertical"
+                         VerticalOptions="FillAndExpand"
+                         Padding="10"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
+
+                    <Grid x:Name="SegmentGrid"
+                      RowSpacing="10"
+                      ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+
+                    <Image VerticalOptions="Start" HorizontalOptions="FillAndExpand" Source="ICICIIcon.png" Margin="20"/>
+                    <Label Text="Username" />
+                    <Entry x:Name="usernameEntry" Placeholder="username" />
+                    <Label Text="Password" />
+                    <Entry x:Name="passwordEntry" IsPassword="true" />
+                    <Button Text="Login" Clicked="OnLoginClicked" />
+                    <Label x:Name="messageLabel" />
+                    <!--<WebView BackgroundColor="White" VerticalOptions="FillAndExpand" Source="{Binding DescriptionHtml}" />-->
+                </StackLayout>
+
+                <ActivityIndicator x:Name="Loader"
+                               IsRunning="False"
+                                   IsVisible="False"
+                               Color="Red"
+                               
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.33}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=0.33}" />
+            </RelativeLayout>
+
+            <!--<StackLayout VerticalOptions="StartAndExpand">
+            </StackLayout>-->
+        </ScrollView>     
     </ContentPage.Content>
     <!--<Style x:Key="labelStyle" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />

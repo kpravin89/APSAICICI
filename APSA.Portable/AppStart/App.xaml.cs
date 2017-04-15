@@ -1,4 +1,5 @@
 ﻿using APSA.Portable.Views.Login;
+using APSA.Portable.Views.Menus;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,8 @@ namespace APSA.Portable.AppStart
 
         public App()
         {
-            MainPage = new NavigationPage(new LoginPage());
+            AccessToken = null;
+            MainPage = new NavigationPage(new RootPage());
         }
 
     }

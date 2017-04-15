@@ -47,12 +47,20 @@
     </Compile>
     <Compile Include="Data\Services\Security\LoginServices.cs" />
     <Compile Include="Helper\Infrastructure\NinjectLoader.cs" />
+    <Compile Include="Models\APIModels\Menus\MenuItem.cs" />
     <Compile Include="Models\APIModels\Security\TokenModel.cs" />
     <Compile Include="Nimbi\ModelBase\APIModelBase.cs" />
     <Compile Include="Nimbi\ModelBase\IAPIModelBase.cs" />
     <Compile Include="Models\APIModels\Security\LoginModel.cs" />
     <Compile Include="Nimbi\Core\Attributes\UrlParameterAttribute.cs" />
+    <Compile Include="Nimbi\Navigation\INavigatingViewModel.cs" />
+    <Compile Include="Nimbi\Navigation\IViewModelNavigation.cs" />
+    <Compile Include="Nimbi\Navigation\NavigationFrame.cs" />
+    <Compile Include="Nimbi\Navigation\NotifyPropertyChangedBase.cs" />
+    <Compile Include="Nimbi\Navigation\PageViewModel.cs" />
+    <Compile Include="Nimbi\Navigation\RegisterViewModelAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Login\LoginPageViewModel.cs" />
     <Compile Include="Views\Home\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
@@ -71,6 +79,10 @@
     <Compile Include="Views\Login\SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Menus\MenuListData.cs" />
+    <Compile Include="Views\Menus\MenuListView.cs" />
+    <Compile Include="Views\Menus\MenuPage.cs" />
+    <Compile Include="Views\Menus\RootPage.cs" />
     <Compile Include="Views\Test\CalculatorPage.xaml.cs">
       <DependentUpon>CalculatorPage.xaml</DependentUpon>
     </Compile>
@@ -152,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <AndroidResource Include="Resources\Images\ICICIIcon.png" />
     <Content Include="tessdata\pdf.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
