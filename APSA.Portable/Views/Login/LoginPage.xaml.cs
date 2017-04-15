@@ -2,6 +2,7 @@
 using APSA.Portable.Models.APIModels.Security;
 using APSA.Portable.Nimbi.Navigation;
 using APSA.Portable.ViewModel.Login;
+using APSA.Portable.Views.Controls.Slideout;
 using APSA.Portable.Views.Home;
 using APSA.Portable.Views.Menus;
 using APSA.Portable.Views.Test;
@@ -45,6 +46,9 @@ namespace APSA.Portable.Views.Login
 
         async void OnLoginClicked(object sender, EventArgs e)
         {
+            ((SlideoutControl)SlideLayout).IsVisible = false;
+            return;
+
             try
             {
                 IsLoading = true;

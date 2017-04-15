@@ -21,7 +21,7 @@ namespace APSA.Portable.AppStart
         public App()
         {
             AccessToken = null;
-            MainPage = new NavigationPage(new RootPage());
+            MainPage = new LoginPage();
         }
 
     }

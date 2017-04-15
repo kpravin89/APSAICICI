@@ -10,7 +10,7 @@ namespace APSA.Droid
     
     [Activity(Label = "APSA ICICI", 
         MainLauncher = true, 
-        Theme = "@style/ICICIAppathonTheme", 
+        Theme = "@style/AppTheme.Dark", 
         Icon = "@drawable/ICICIIcon")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
