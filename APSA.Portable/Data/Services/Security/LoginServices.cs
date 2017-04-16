@@ -11,7 +11,7 @@ namespace APSA.Portable.Data.Services.Security
     {
         public async Task<TokenModel[]> GetTokenAsync(LoginModel oLoginModel)
         {
-            return await oLoginModel.GetCustomTypeFromApiAsync<TokenModel[]>();
+            return await oLoginModel.GetCustomTypeFromApiAsync<TokenModel[]>(Nimbi.ModelBase.HttpVerb_Enum.get, null);
         }
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,10 +18,16 @@ namespace APSA.Portable.Nimbi.ModelBase
             get;
         }
 
+        Dictionary<string, string> DefaultRequestHeaders
+        {
+            get;
+        }
+
         string getFullUrl();
 
-        Task<T> GetModelFromApiAsync<T>()
+        Task<T> GetModelFromApiAsync<T>(HttpVerb_Enum oHttpVerb, HttpContent oHttpContent)
             where T : class, IAPIModelBase, new();
-        Task<T> GetCustomTypeFromApiAsync<T>();  
+
+        Task<T> GetCustomTypeFromApiAsync<T>(HttpVerb_Enum oHttpVerb, HttpContent oHttpContent);  
     }
 }

@@ -1,5 +1,4 @@
 ﻿using APSA.Portable.Views.Home;
-using APSA.Portable.Views.Insurance.Scan;
 using APSA.Portable.Views.Login;
 using System;
 using System.Collections.Generic;

@@ -14,10 +14,7 @@ namespace APSA.Portable.Views.Home
     {
         public WelcomePage()
         {
-            InitializeComponent();
-            ParticipantID.Text = "Welcome :" + AppStart.App.ParticipantID;
-            Token.Text = AppStart.App.AccessToken;
-
+            InitializeComponent();            
         }
 
         public async void ICICUser_Clicked(object sender, EventArgs e)

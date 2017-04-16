@@ -3,7 +3,7 @@ using APSA.Portable.Models.APIModels.Security;
 using APSA.Portable.Nimbi.Navigation;
 using APSA.Portable.ViewModel.Login;
 using APSA.Portable.Views.Controls.Slideout;
-using APSA.Portable.Views.Home;
+using APSA.Portable.Views.Insurance.Scan;
 using APSA.Portable.Views.Menus;
 using APSA.Portable.Views.Test;
 using System;
@@ -46,9 +46,6 @@ namespace APSA.Portable.Views.Login
 
         async void OnLoginClicked(object sender, EventArgs e)
         {
-            ((SlideoutControl)SlideLayout).IsVisible = false;
-            return;
-
             try
             {
                 IsLoading = true;
@@ -58,7 +55,7 @@ namespace APSA.Portable.Views.Login
                     AppStart.App.AccessToken = tokens[0].token;
                     IsLoading = false;
                     await Navigation.PopAsync();
-                    await Navigation.PushAsync(new RootPage());
+                    await Navigation.PushAsync(new HomePage());
                 }
                 IsLoading = false;
                 messageLabel.Text = "Login Failed";

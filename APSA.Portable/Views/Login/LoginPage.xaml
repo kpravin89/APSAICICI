@@ -24,38 +24,36 @@
         <ToolbarItem Text="Sign Up" Clicked="OnSignUpClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView BackgroundColor="#d3d6db">
-            <local:SlideoutControl x:Name="SlideLayout" 
+
+        <RelativeLayout x:Name="SlideLayout" 
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
-
-                <StackLayout x:Name="MainLayout"
+            <StackLayout x:Name="MainLayout"
                         Orientation="Vertical"
                          VerticalOptions="FillAndExpand"
                          Padding="10"
                          RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
                          RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
 
-                    <Grid x:Name="SegmentGrid"
+                <Grid x:Name="SegmentGrid"
                       RowSpacing="10"
                       ColumnSpacing="10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                    </Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
 
-                    <Image VerticalOptions="Start" HorizontalOptions="FillAndExpand" Source="ICICIIcon.png" Margin="20"/>
-                    <Label Text="Username" />
-                    <Entry x:Name="usernameEntry" Placeholder="username" />
-                    <Label Text="Password" />
-                    <Entry x:Name="passwordEntry" IsPassword="true" />
-                    <Button Text="Login" Clicked="OnLoginClicked" />
-                    <Label x:Name="messageLabel" />
-                    <!--<WebView BackgroundColor="White" VerticalOptions="FillAndExpand" Source="{Binding DescriptionHtml}" />-->
-                </StackLayout>
-
-                <ActivityIndicator x:Name="Loader"
+                <Image VerticalOptions="Start" HorizontalOptions="FillAndExpand" Source="ICICIIcon.png" Margin="20"/>
+                <Label Text="Username" />
+                <Entry x:Name="usernameEntry" Placeholder="username" />
+                <Label Text="Password" />
+                <Entry x:Name="passwordEntry" IsPassword="true" />
+                <Button Text="Login" Clicked="OnLoginClicked" />
+                <Label x:Name="messageLabel" />
+                <!--<WebView BackgroundColor="White" VerticalOptions="FillAndExpand" Source="{Binding DescriptionHtml}" />-->
+            </StackLayout>
+            <ActivityIndicator x:Name="Loader"
                                IsRunning="False"
                                    IsVisible="False"
                                Color="Red"
@@ -68,16 +66,9 @@
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
                                         Property=Height,
                                         Factor=0.33}" />
-            </local:SlideoutControl>
+        </RelativeLayout>
 
-            <!--<StackLayout VerticalOptions="StartAndExpand">
-            </StackLayout>-->
-        </ScrollView>     
+        <!--<ScrollView BackgroundColor="#d3d6db">
+        </ScrollView>-->     
     </ContentPage.Content>
-    <!--<Style x:Key="labelStyle" TargetType="Label">
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-        <Setter Property="FontSize" Value="Large" />
-        <Setter Property="color"  Value="Red" />
-    </Style>-->
 </ContentPage>

@@ -18,9 +18,12 @@ namespace APSA.Portable.Nimbi.ModelBase
 
         public Dictionary<string, string> api_static_parameters { get; private set; }
 
+        public Dictionary<string, string> DefaultRequestHeaders { get; private set; }
+
         public APIModelBase()
         {
             api_static_parameters = new Dictionary<string, string>();
+            DefaultRequestHeaders = new Dictionary<string, string>();
         }
 
         public string getFullUrl()
@@ -44,34 +47,49 @@ namespace APSA.Portable.Nimbi.ModelBase
             return fullUrl;
         }
 
-        public async Task<T> GetModelFromApiAsync<T>()
+        public async Task<T> GetModelFromApiAsync<T>(HttpVerb_Enum oHttpVerb, HttpContent oHttpContent)
             where T : class, IAPIModelBase, new()
         {
-            //T Result = null;
-            //using (HttpClient client = new HttpClient())
-            //{
-            //    client.MaxResponseContentBufferSize = 256000;
-            //    var response = await client.GetAsync(getFullUrl()).ConfigureAwait(false);
-            //    if (response.IsSuccessStatusCode)
-            //    {
-            //        var content = await response.Content.ReadAsStringAsync();
-            //        Result = JsonConvert.DeserializeObject<T>(content);
-            //        return Result;
-            //    }
-            //    return Result;
-            //}
-
-            return await GetCustomTypeFromApiAsync<T>();
-
+            return await GetCustomTypeFromApiAsync<T>(oHttpVerb, oHttpContent);
         }
 
-        public async Task<T> GetCustomTypeFromApiAsync<T>()
+        public async Task<T> GetCustomTypeFromApiAsync<T>(HttpVerb_Enum oHttpVerb, HttpContent oHttpContent)
         {
             T Result = default(T);
+            string strURI = getFullUrl();
+
             using (HttpClient client = new HttpClient())
             {
                 client.MaxResponseContentBufferSize = 256000;
-                var response = await client.GetAsync(getFullUrl()).ConfigureAwait(false);
+
+                foreach (var item in DefaultRequestHeaders)
+                {
+                    client.DefaultRequestHeaders.Add(item.Key, item.Value);
+                }
+
+                HttpResponseMessage response;
+
+                if (oHttpVerb == HttpVerb_Enum.post)
+                {
+                    response = await client.PostAsync(strURI, oHttpContent).ConfigureAwait(false);
+                }
+                else if(oHttpVerb == HttpVerb_Enum.put)
+                {
+                    response = await client.PutAsync(strURI, oHttpContent).ConfigureAwait(false);
+                }
+                else if (oHttpVerb == HttpVerb_Enum.delete)
+                {
+                    response = await client.DeleteAsync(strURI).ConfigureAwait(false);
+                }
+                else if (oHttpVerb == HttpVerb_Enum.head)
+                {
+                    response = await client.SendAsync(new HttpRequestMessage(HttpMethod.Head, strURI)).ConfigureAwait(false);
+                }
+                else
+                {
+                    response = await client.GetAsync(strURI).ConfigureAwait(false);
+                }
+                                
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();

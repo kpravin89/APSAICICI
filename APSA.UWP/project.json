@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "Xamarin.Forms": "2.3.4.224",
+    "Xamarin.Forms": "2.3.4.231",
     "Xamarin.Forms.DataGrid": "1.8.7",
     "ZXing.Net.Mobile": "2.1.47",
     "ZXing.Net.Mobile.Forms": "2.1.47"
