@@ -20,31 +20,31 @@ namespace APSA.Portable.Views.Home
         public async void BankUser_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await Navigation.PushAsync(new Banking.EndUser.EndUserHomePage());
+            await Navigation.PushAsync(new LoginPage(ViewModel.Login.LoginMode_Enum.BankUser));
         }
 
         public async void BankClerk_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await Navigation.PushAsync(new LoginPage());
+            await Navigation.PushAsync(new LoginPage(ViewModel.Login.LoginMode_Enum.BankClerk));
         }
 
         public async void InsurnaceUser_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await Navigation.PushAsync(new Insurance.EndUser.EndUserHomePage());
+            await Navigation.PushAsync(new LoginPage(ViewModel.Login.LoginMode_Enum.InsuranceUser));
         }
 
         public async void TrafficPolice_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await Navigation.PushAsync(new Insurance.Police.PoliceHomePage());
+            await Navigation.PushAsync(new LoginPage(ViewModel.Login.LoginMode_Enum.TrafficPolice));
         }
 
         public async void MedicalClaimUser_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await Navigation.PushAsync(new Insurance.MedicalClaim.MedicalClaimUserPage());
+            await Navigation.PushAsync(new LoginPage(ViewModel.Login.LoginMode_Enum.MedicalClaim));
         }
     }
 }

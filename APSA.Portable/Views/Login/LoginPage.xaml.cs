@@ -16,22 +16,31 @@ using Xamarin.Forms;
 
 namespace APSA.Portable.Views.Login
 {
-    //[RegisterViewModel(typeof(LoginPageViewModel))]
     public partial class LoginPage : ContentPage
     {
-        LoginServices oLoginServices;
 
+        #region Fields
+
+        LoginServices oLoginServices;
         LoginPageViewModel oLoginPageViewModel { get; set; }
-        
-        public LoginPage()
+
+        #endregion
+
+        #region Constructors
+
+        public LoginPage(LoginMode_Enum LoginMode)
         {
             InitializeComponent();
             oLoginPageViewModel = new LoginPageViewModel();
             oLoginPageViewModel.IsLoading = false;
+            oLoginPageViewModel.LoginMode = LoginMode;
 
             BindingContext = oLoginPageViewModel;
             oLoginServices = new LoginServices();
         }
+        #endregion
+
+        #region Events
 
         async void OnLoginClicked(object sender, EventArgs e)
         {
@@ -39,12 +48,25 @@ namespace APSA.Portable.Views.Login
             {
                 oLoginPageViewModel.IsLoading = true;
                 var tokens = await oLoginServices.GetTokenAsync(new LoginModel() { participant_access_code = passwordEntry.Text, participant_id = usernameEntry.Text });
-                if(tokens.Count() != 0 && !string.IsNullOrWhiteSpace(tokens[0].token) )
+                if (tokens.Count() != 0 && !string.IsNullOrWhiteSpace(tokens[0].token))
                 {
                     AppStart.App.AccessToken = tokens[0].token;
                     oLoginPageViewModel.IsLoading = false;
+                    oLoginPageViewModel.AccessToken = tokens[0].token;
+
                     await Navigation.PopAsync();
-                    await Navigation.PushAsync(new APSA.Portable.Views.Insurance.Scan.HomePage());
+
+                    if (oLoginPageViewModel.LoginMode == LoginMode_Enum.BankUser)
+                        await Navigation.PushAsync(new Banking.EndUser.EndUserHomePage());
+                    else if (oLoginPageViewModel.LoginMode == LoginMode_Enum.BankClerk)
+                        await Navigation.PushAsync(new Banking.Clerk.ClerkHomePage());
+                    else if (oLoginPageViewModel.LoginMode == LoginMode_Enum.InsuranceUser)
+                        await Navigation.PushAsync(new Insurance.EndUser.EndUserHomePage());
+                    else if (oLoginPageViewModel.LoginMode == LoginMode_Enum.TrafficPolice)
+                        await Navigation.PushAsync(new Insurance.Police.PoliceHomePage());
+                    else
+                        await Navigation.PushAsync(new Insurance.MedicalClaim.MedicalClaimUserPage());
+
                 }
                 oLoginPageViewModel.IsLoading = false;
                 messageLabel.Text = "Login Failed";
@@ -54,8 +76,7 @@ namespace APSA.Portable.Views.Login
                 oLoginPageViewModel.IsLoading = false;
                 messageLabel.Text = "Login Failed" + ex.Message;
             }
-
-
+            
         }
 
         async void OnSignUpClicked(object sender, EventArgs e)
@@ -63,5 +84,8 @@ namespace APSA.Portable.Views.Login
             await Navigation.PopAsync();
             await Navigation.PushAsync(new CalculatorPage());
         }
+
+        #endregion
+
     }
 }

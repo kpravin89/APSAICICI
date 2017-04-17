@@ -11,7 +11,8 @@ namespace APSA.Portable.Nimbi.Navigation
     public abstract class PageViewModel: INavigatingViewModel
     {
         public string Title { get; set; }
-
+        
+        public string AccessToken { get; set; }
 
         #region INavigatedPage implementation
 

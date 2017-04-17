@@ -19,5 +19,7 @@ namespace APSA.Portable.ViewModel.Login
         
         public bool IsLoading { get; set; }
         
+        public LoginMode_Enum LoginMode { get; set; }
+
     }
 }
