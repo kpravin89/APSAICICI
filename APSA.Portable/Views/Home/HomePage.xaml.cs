@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APSA.Portable.Views.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace APSA.Portable.Views.Home
         public async void BankClerk_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await Navigation.PushAsync(new WelcomePage());
+            await Navigation.PushAsync(new LoginPage());
         }
 
         public async void InsurnaceUser_Clicked(object sender, EventArgs e)

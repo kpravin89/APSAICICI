@@ -21,48 +21,37 @@ namespace APSA.Portable.Views.Login
     {
         LoginServices oLoginServices;
 
-        private bool _IsLoading;
-        public bool IsLoading
-        {
-            get
-            {
-                return _IsLoading;
-            }
-            set
-            {
-                _IsLoading = value;
-                Loader.IsRunning = value;
-                Loader.IsVisible = value;
-                MainLayout.IsVisible = !value;
-            }
-        }
-
+        LoginPageViewModel oLoginPageViewModel { get; set; }
+        
         public LoginPage()
         {
             InitializeComponent();
+            oLoginPageViewModel = new LoginPageViewModel();
+            oLoginPageViewModel.IsLoading = false;
+
+            BindingContext = oLoginPageViewModel;
             oLoginServices = new LoginServices();
-            ToolbarItems.Clear();
         }
 
         async void OnLoginClicked(object sender, EventArgs e)
         {
             try
             {
-                IsLoading = true;
+                oLoginPageViewModel.IsLoading = true;
                 var tokens = await oLoginServices.GetTokenAsync(new LoginModel() { participant_access_code = passwordEntry.Text, participant_id = usernameEntry.Text });
                 if(tokens.Count() != 0 && !string.IsNullOrWhiteSpace(tokens[0].token) )
                 {
                     AppStart.App.AccessToken = tokens[0].token;
-                    IsLoading = false;
+                    oLoginPageViewModel.IsLoading = false;
                     await Navigation.PopAsync();
-                    await Navigation.PushAsync(new HomePage());
+                    await Navigation.PushAsync(new APSA.Portable.Views.Insurance.Scan.HomePage());
                 }
-                IsLoading = false;
+                oLoginPageViewModel.IsLoading = false;
                 messageLabel.Text = "Login Failed";
             }
             catch (Exception ex)
             {
-                IsLoading = false;
+                oLoginPageViewModel.IsLoading = false;
                 messageLabel.Text = "Login Failed" + ex.Message;
             }
 

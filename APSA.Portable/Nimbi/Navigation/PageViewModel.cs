@@ -3,24 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyChanged;
 
 namespace APSA.Portable.Nimbi.Navigation
 {
-    public abstract class PageViewModel : NotifyPropertyChangedBase, INavigatingViewModel
+    [ImplementPropertyChanged]
+    public abstract class PageViewModel: INavigatingViewModel
     {
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set
-            {
-                if (_title != value)
-                {
-                    _title = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        public string Title { get; set; }
+
 
         #region INavigatedPage implementation
 

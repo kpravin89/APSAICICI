@@ -2,73 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="APSA.Portable.Views.Login.LoginPage"
-             xmlns:local="clr-namespace:APSA.Portable.Views.Controls.Slideout"
-             BackgroundColor="PeachPuff">
+             BackgroundColor="PeachPuff"             
+             xmlns:Converter="clr-namespace:APSA.Portable.Nimbi.Core.Converter">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <!--<Style TargetType="Entry">
-                <Setter Property="HorizontalOptions" Value="Fill" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="FontAttributes" Value="Italic" />
-                <Setter Property="TextColor" Value="Blue" />
-            </Style>
-            <Style TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Fill" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="FontAttributes" Value="Italic" />
-                <Setter Property="TextColor" Value="Blue" />
-            </Style>-->
+            <Converter:NegateBooleanConverter x:Key="inverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Sign Up" Clicked="OnSignUpClicked" />
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-
         <RelativeLayout x:Name="SlideLayout" 
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
-            <StackLayout x:Name="MainLayout"
-                        Orientation="Vertical"
+            <StackLayout Orientation="Vertical"
                          VerticalOptions="FillAndExpand"
                          Padding="10"
+                         IsVisible="{Binding IsLoading, Converter={StaticResource inverter}}"
                          RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
                          RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
-
-                <Grid x:Name="SegmentGrid"
-                      RowSpacing="10"
-                      ColumnSpacing="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                </Grid>
-
                 <Image VerticalOptions="Start" HorizontalOptions="FillAndExpand" Source="ICICIIcon.png" Margin="20"/>
                 <Label Text="Username" />
-                <Entry x:Name="usernameEntry" Placeholder="username" />
+                <Entry x:Name="usernameEntry" Placeholder="username"/>
                 <Label Text="Password" />
                 <Entry x:Name="passwordEntry" IsPassword="true" />
                 <Button Text="Login" Clicked="OnLoginClicked" />
                 <Label x:Name="messageLabel" />
-                <!--<WebView BackgroundColor="White" VerticalOptions="FillAndExpand" Source="{Binding DescriptionHtml}" />-->
+                <Button Text="Sign Up" Clicked="OnSignUpClicked"/>
             </StackLayout>
-            <ActivityIndicator x:Name="Loader"
-                               IsRunning="False"
-                                   IsVisible="False"
-                               Color="Red"
-                               
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               Color="#FF2222"                               
                                VerticalOptions="FillAndExpand"
                                HorizontalOptions="FillAndExpand"
-                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
-                                        Property=Height,
-                                        Factor=0.33}"
-                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
-                                        Property=Height,
-                                        Factor=0.33}" />
-        </RelativeLayout>
-
-        <!--<ScrollView BackgroundColor="#d3d6db">
-        </ScrollView>-->     
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.33}" />
+        </RelativeLayout>   
     </ContentPage.Content>
 </ContentPage>

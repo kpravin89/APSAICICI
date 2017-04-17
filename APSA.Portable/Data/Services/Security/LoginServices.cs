@@ -1,4 +1,5 @@
 ﻿using APSA.Portable.Models.APIModels.Security;
+using APSA.Portable.Nimbi.ModelBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace APSA.Portable.Data.Services.Security
     {
         public async Task<TokenModel[]> GetTokenAsync(LoginModel oLoginModel)
         {
-            return await oLoginModel.GetCustomTypeFromApiAsync<TokenModel[]>(Nimbi.ModelBase.HttpVerb_Enum.get, null);
+            return await oLoginModel.GetCustomTypeFromApiAsync<TokenModel[]>(HttpVerb_Enum.get, null);
         }
 
 
