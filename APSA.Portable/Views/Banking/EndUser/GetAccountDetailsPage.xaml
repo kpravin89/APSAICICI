@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=zxing.portable"
+             x:Class="APSA.Portable.Views.Banking.EndUser.GetAccountDetailsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="#FF9999" />
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <RelativeLayout x:Name="SlideLayout" 
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="BalanceLayout" VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+                <Label Text="Test"/>
+            </StackLayout>
+            <Grid x:Name="ScanGrid" VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+                <Label Text="Test"/>
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

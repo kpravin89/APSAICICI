@@ -41,7 +41,7 @@ namespace APSA.Portable.Nimbi.ModelBase
                                                 .ToList();
             foreach (var item in oProperties)
             {
-                fullUrl = fullUrl.Replace(item.Name, Convert.ToString(item.GetValue(this)));
+                fullUrl = fullUrl.Replace("[" + item.Name + "]", Convert.ToString(item.GetValue(this)));
             }
 
             return fullUrl;

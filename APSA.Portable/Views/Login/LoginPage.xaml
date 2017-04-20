@@ -26,7 +26,7 @@
                 <Entry x:Name="passwordEntry" IsPassword="true" />
                 <Button Text="Login" Clicked="OnLoginClicked" />
                 <Label x:Name="messageLabel" />
-                <Button Text="Sign Up" Clicked="OnSignUpClicked"/>
+                <Button IsVisible="{Binding IsSignUpRequired}" Text="Sign Up" Clicked="OnSignUpClicked"/>
             </StackLayout>
             <ActivityIndicator IsRunning="{Binding IsLoading}"
                                IsVisible="{Binding IsLoading}"

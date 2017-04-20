@@ -13,7 +13,7 @@ namespace APSA.Portable.Models.APIModels.Security
     {
         public LoginModel()
         {
-            base.api_url = @"https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/authenticate_client?client_id=participant_id&password=participant_access_code";
+            base.api_url = @"https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/authenticate_client?client_id=[participant_id]&password=[participant_access_code]";
             participant_id = @"k.pravin89@gmail.com";
             participant_access_code = "TFGQVM9M";            
         }

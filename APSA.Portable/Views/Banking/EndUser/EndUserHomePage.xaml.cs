@@ -14,5 +14,25 @@ namespace APSA.Portable.Views.Banking.EndUser
         {
             InitializeComponent();
         }
+
+
+        public async void GetAccountDetails_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GetAccountDetailsPage());
+        }
+
+        public async void AddKYCForm_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddKYCFormPage());
+        }
+        public async void LinkAadharCard_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LinkAadharCardPage());
+        }
+        public async void CallCustomerCare_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CallCustomerCarePage());
+        }
+
     }
 }

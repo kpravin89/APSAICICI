@@ -45,8 +45,13 @@
     <Compile Include="AppStart\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Services\Banking\EndUser\AccountServices.cs" />
     <Compile Include="Data\Services\Security\LoginServices.cs" />
     <Compile Include="Helper\Infrastructure\NinjectLoader.cs" />
+    <Compile Include="Models\APIModels\Base\CodeObject.cs" />
+    <Compile Include="Models\APIModels\CoreBanking\BalanceEnquiryAccount.cs" />
+    <Compile Include="Models\APIModels\CoreBanking\BalanceEnquiryInput.cs" />
+    <Compile Include="Models\APIModels\CoreBanking\BalanceEnquiryOutput.cs" />
     <Compile Include="Models\APIModels\Menus\MenuItem.cs" />
     <Compile Include="Models\APIModels\Security\TokenModel.cs" />
     <Compile Include="Nimbi\Core\Converter\NegateBooleanConverter.cs" />
@@ -67,8 +72,20 @@
     <Compile Include="Views\Banking\Clerk\ClerkHomePage.xaml.cs">
       <DependentUpon>ClerkHomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Banking\EndUser\AddKYCFormPage.xaml.cs">
+      <DependentUpon>AddKYCFormPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Banking\EndUser\CallCustomerCarePage.xaml.cs">
+      <DependentUpon>CallCustomerCarePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Banking\EndUser\EndUserHomePage.xaml.cs">
       <DependentUpon>EndUserHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Banking\EndUser\GetAccountDetailsPage.xaml.cs">
+      <DependentUpon>GetAccountDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Banking\EndUser\LinkAadharCardPage.xaml.cs">
+      <DependentUpon>LinkAadharCardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\Slideout\SlideoutControl.cs" />
     <Compile Include="Views\Controls\Slideout\SlideoutDirection.cs" />
@@ -112,8 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Interface\" />
-    <Folder Include="Models\APIModels\Base\" />
-    <Folder Include="Models\APIModels\CoreBanking\" />
     <Folder Include="Models\APIModels\Insurance\" />
     <Folder Include="Views\Banking\CoreBanking\" />
     <Folder Include="Views\Banking\KYC\" />
@@ -321,6 +336,30 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Banking\Clerk\ClerkHomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Banking\EndUser\GetAccountDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Banking\EndUser\AddKYCFormPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Banking\EndUser\LinkAadharCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Banking\EndUser\CallCustomerCarePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

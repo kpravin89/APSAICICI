@@ -54,7 +54,7 @@ namespace APSA.Portable.Views.Login
                     oLoginPageViewModel.IsLoading = false;
                     oLoginPageViewModel.AccessToken = tokens[0].token;
 
-                    await Navigation.PopAsync();
+                    //await Navigation.PopAsync();
 
                     if (oLoginPageViewModel.LoginMode == LoginMode_Enum.BankUser)
                         await Navigation.PushAsync(new Banking.EndUser.EndUserHomePage());

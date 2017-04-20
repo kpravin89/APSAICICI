@@ -17,7 +17,7 @@ namespace APSA.Portable.Views.Login
 
         async void OnSignUpClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            //await Navigation.PushAsync(new LoginPage());
         }
 
     }

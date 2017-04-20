@@ -2,4 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="APSA.Portable.Views.Banking.EndUser.EndUserHomePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="#FF9999" />
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="10" VerticalOptions="FillAndExpand">
+                <Button Text="Log Out" VerticalOptions="Start" HorizontalOptions="EndAndExpand"/>
+                <Image VerticalOptions="Start" 
+                       HorizontalOptions="FillAndExpand" 
+                       Source="ICICIIcon.png" Margin="50"/>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Get Account Details" Clicked="GetAccountDetails_Clicked" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Add KYC Form" Clicked="AddKYCForm_Clicked" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Link Aadhar Card" Clicked="LinkAadharCard_Clicked" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Customer Care (VOIP)" Clicked="CallCustomerCare_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
